@@ -1,0 +1,26 @@
+main img {
+	width: 100%;
+	height: auto;
+}
+
+main h1 {
+	border-left: 5px rgb(102, 162, 218) solid;
+	background-color: aliceblue;
+	padding: 0 0 0 10px;
+}
+
+main h2 {
+	border-left: 5px rgb(102, 162, 218) solid;
+	background-color: aliceblue;
+	padding: 0 0 0 10px;
+}
+
+main h3 {
+	border-left: 5px rgb(102, 162, 218) solid;
+	background-color: aliceblue;
+	padding: 0 0 0 10px;
+}
+
+.backtotop {
+	text-align: center;
+}

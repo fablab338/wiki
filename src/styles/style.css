@@ -1,0 +1,57 @@
+header {
+    border-bottom: 1px dashed #000;
+}
+
+.all {
+    margin: 10px;
+}
+
+footer {
+    text-align: right;
+    border-top: 1px dashed #000;
+    padding: 10px;
+}
+
+:root {
+    --a: rgb(102, 162, 218);
+    --text: #333;
+    --b: #fff;
+    --text-light: #fff;
+
+    --pagefind-ui-scale: 0.8;
+    --pagefind-ui-primary: var(--a);
+    --pagefind-ui-text: var(--text);
+    --pagefind-ui-background: var(--b);
+    --pagefind-ui-border: var(--a);
+    --pagefind-ui-tag: var(--a);
+    --pagefind-ui-border-width: 10px;
+    --pagefind-ui-border-radius: 10px;
+    --pagefind-ui-image-border-radius: 10px;
+    --pagefind-ui-image-box-ratio: 3 / 2;
+    --pagefind-ui-font: sans-serif;
+}
+
+.pagefind-ui__result-thumb {
+    display: none !important;
+}
+
+.pagefind-ui__result-excerpt {
+    color: var(--text) !important;
+}
+
+.pagefind-ui__result-excerpt mark {
+    background-color: var(--a) !important;
+    color: var(--text-light) !important;
+    border-radius: 2px;
+    padding: 0 2px;
+}
+
+.pagefind-ui__search-input {
+    margin-bottom: 10px !important;
+}
+
+.pagefind-ui__search-input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: var(--a) !important;
+}

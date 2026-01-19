@@ -1,14 +1,72 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/style.css";
+import "luminous-lightbox/dist/luminous-basic.min.css";
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/soil.JPG" type="image/jpeg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>SOIL's WIKI</title>
 	</head>
 	<body>
-		<slot />
+		<div class="all">
+			<Header />
+			<slot />
+			<Footer />
+		</div>
+		<script>
+			import { Luminous } from "luminous-lightbox";
+
+			function initLightbox() {
+				// ブログ記事のコンテナを取得
+				const postContainer = document.querySelector(".post");
+				if (postContainer) {
+					// コンテナ内のすべての画像を取得
+					const images = postContainer.querySelectorAll("img");
+					images.forEach((img) => {
+						// 親が既にaタグの場合は何もしない
+						if (
+							img.parentElement &&
+							img.parentElement.tagName === "A"
+						) {
+							return;
+						}
+
+						// aタグを作成
+						const link = document.createElement("a");
+						link.href = img.src;
+						link.classList.add("luminous");
+
+						// imgをaタグでラップ
+						if (img.parentNode) {
+							img.parentNode.insertBefore(link, img);
+							link.appendChild(img);
+						}
+					});
+				}
+
+				// Luminousを初期化
+				const luminousTriggers = document.querySelectorAll(".luminous");
+				if (luminousTriggers.length > 0) {
+					luminousTriggers.forEach((trigger) => {
+						new Luminous(trigger);
+					});
+				}
+			}
+
+			// DOMContentLoaded で実行
+			if (document.readyState === "loading") {
+				document.addEventListener("DOMContentLoaded", initLightbox);
+			} else {
+				initLightbox();
+			}
+		</script>
 	</body>
 </html>
 
@@ -18,5 +76,12 @@
 		margin: 0;
 		width: 100%;
 		height: 100%;
+	}
+
+	.all {
+		max-width: 600px;
+		min-width: 300px;
+		width: 100%;
+		text-align: left;
 	}
 </style>
