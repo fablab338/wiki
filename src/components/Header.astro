@@ -10,7 +10,7 @@ import soil from "../assets/soil.png";
         This page is soil's wiki page.<br />
         Built with Astro and microCMS.
     </p>
-    <Image src={soil} alt="soil logo" width={100} />
+    <a href="/"><Image src={soil} alt="soil logo" width={100} /></a>
     <Menu />
 </header>
 
@@ -19,13 +19,19 @@ import soil from "../assets/soil.png";
         width: 100%;
         position: relative;
     }
+    header h1{
+        text-align: right;
+    }
     header h1 a {
         color: #000;
         list-style: none;
     }
+    header p {
+        text-align:right;
+    }
     header img {
         position: absolute;
-        right: 10px;
+        left: 10px;
         top: 10px;
     }
 </style>
